@@ -30,19 +30,19 @@ class UsersController < ApplicationController
         render json: {}
     end
 
-    def updateLikes
+    def update_likes
         user = User.find_by(id: params[:id])
         user.update(params.require(:user).permit(:likes, likes:[]))
         render json: user
    end
 
-   def updateFollowing
+   def update_following
     user = User.find_by(id: params[:id])
     user.update(params.require(:user).permit(:following, following:[]))
     render json: user
 end
 
-def updateFollowers
+def update_followers
     user = User.find_by(id: params[:id])
     user.update(params.require(:user).permit(:followers, followers:[]))
     render json: user
@@ -55,7 +55,7 @@ private
     end
 
     def user_params
-        params.require(:contact).permit(:username, :password, :phone_number, :address, :description, :photo, :favorite, :user_id)
+        params.permit(:username, :password, :name)
     end
 
    
