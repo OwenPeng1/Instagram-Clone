@@ -1,13 +1,15 @@
 import logo from './logo.svg';
 import './App.css';
 import PhotoContainer from './PhotoContainer';
-import PhotoCard from './PhotoCard';
+import Login from './Login';
 import { useState, useEffect } from 'react';
 import {Routes, Route} from 'react-router-dom';
 
 function App() {
 const [photos, setPhotos] = useState([])
 const [comments, setComments] = useState([])
+const [user, setUser] = useState({username:"", password:""})
+const [currentUser, setCurrentUser] = useState(null)
   
   function fetchPhotos(){
     fetch("/photos")
@@ -25,6 +27,12 @@ const [comments, setComments] = useState([])
     () => {
       fetchPhotos()
       fetchComments()
+    
+      fetch("/userInSession")
+      .then(r => r.json())
+      .then(data => {console.log(data)
+      setCurrentUser(data)});
+    
     }, []
   )
 
@@ -32,7 +40,9 @@ const [comments, setComments] = useState([])
     <main>
       <Routes>
         <Route path="/home" 
-        element={<PhotoContainer photos={photos} comments={comments}/>}/>
+        element={<PhotoContainer photos={photos} comments={comments} currentUser={currentUser}/>}/>
+        <Route path="/"
+        element= {<Login setUser={setUser} setCurrentUser={setCurrentUser} user={user}/>}/>
       </Routes>
     </main>
   ) 

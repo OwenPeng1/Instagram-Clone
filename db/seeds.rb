@@ -6,6 +6,10 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+User.destroy_all
+Photo.destroy_all
+Comment.destroy_all
+
 owen = User.create(name: "Owen Peng",
                 username: "OPeng",
                 password: "Peng",
@@ -141,5 +145,24 @@ Comment.create(text: "You got jokes?",
 user_id: jayson.id,
 photo_id: joke.id)
 
+selfie = Photo.create(photo: "https://pbs.twimg.com/media/Cvls_10WEAAaqdy.jpg",
+    caption: "Post Workout",
+    user_id: owen.id,
+    )
 
+Comment.create(text: "Looking Big Owen!",
+user_id: lebron.id,
+photo_id: selfie.id)
+
+Comment.create(text: "Who's your trainer?",
+user_id: jayson.id,
+photo_id: selfie.id)
+
+Comment.create(text: "Tryna get like you",
+user_id: steph.id,
+photo_id: selfie.id)
+
+Comment.create(text: "Didn't know you had a sixpack",
+user_id: kawhi.id,
+photo_id: selfie.id)
 
