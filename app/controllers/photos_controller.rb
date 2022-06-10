@@ -1,7 +1,7 @@
 class PhotosController < ApplicationController
     rescue_from ActiveRecord::RecordNotFound, with: :error
     def index
-        render json: Photo.all
+        render json: Photo.all.order("id ASC")
     end
 
     def show
@@ -30,7 +30,7 @@ class PhotosController < ApplicationController
         render json: {}
     end
 
-   def updateLikedBy
+   def update_likedBy
         photo = Photo.find_by(id: params[:id])
         photo.update(params.require(:photo).permit(:likedBy, likedBy:[]))
         render json: photo

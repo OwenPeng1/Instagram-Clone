@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   get '/userInSession', to: "session#logged_user"
   delete "/logout", to: "session#destroy"
 
-  patch '/update_likedBy/:id', to: "photo#update_likedBy"
+  patch '/update_likedBy/:id', to: "photos#update_likedBy"
   patch '/update_followers/:id', to: "users#update_followers"
   patch '/update_following/:id', to: "users#update_following"
   patch '/update_likes/:id', to: "users#update_likes"

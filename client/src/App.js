@@ -4,6 +4,8 @@ import PhotoContainer from './PhotoContainer';
 import Login from './Login';
 import CreateUser from './CreateUser';
 import Profile from './Profile';
+import FollowerTabs from './FollowerTabs';
+import CommentForm from './CommentForm';
 import { useState, useEffect } from 'react';
 import {Routes, Route} from 'react-router-dom';
 
@@ -13,6 +15,9 @@ const [comments, setComments] = useState([])
 const [user, setUser] = useState({username:"", password:""})
 const [currentUser, setCurrentUser] = useState(null)
 const [viewed, setViewed] = useState(null)
+const [activeTab, setActiveTab] = useState("")
+const [users, setUsers] = useState([])
+const [commentedPhoto, setCommentedPhoto] = useState(null)
   
   function fetchPhotos(){
     fetch("/photos")
@@ -24,6 +29,12 @@ const [viewed, setViewed] = useState(null)
     fetch('/comments')
     .then(r => r.json())
     .then(setComments)
+  }
+
+  function fetchUsers(){
+    fetch('/users')
+    .then(r => r.json())
+    .then(setUsers)
   }
 
   function fetchCurrentUser(){
@@ -38,6 +49,7 @@ const [viewed, setViewed] = useState(null)
       fetchPhotos()
       fetchComments()
       fetchCurrentUser()
+      fetchUsers()
     }, []
   )
 
@@ -45,13 +57,17 @@ const [viewed, setViewed] = useState(null)
     <main>
       <Routes>
         <Route path="/home" 
-        element={<PhotoContainer photos={photos} comments={comments} currentUser={currentUser} setViewed={setViewed}/>}/>
+        element={<PhotoContainer photos={photos} comments={comments} currentUser={currentUser} setViewed={setViewed} fetchPhotos={fetchPhotos} setCommentedPhoto={setCommentedPhoto}/>}/>
         <Route path="/"
         element= {<Login setUser={setUser} setCurrentUser={setCurrentUser} user={user}/>}/>
         <Route path="/user"
         element = {<CreateUser/>}/>
         <Route path="/profile"
-        element = {<Profile viewed={viewed} photos={photos} currentUser={currentUser} fetchPhotos={fetchPhotos} fetchCurrentUser={fetchCurrentUser}/>}/>
+        element = {<Profile viewed={viewed} photos={photos} currentUser={currentUser} fetchPhotos={fetchPhotos} fetchCurrentUser={fetchCurrentUser} setActiveTab={setActiveTab} fetchUsers={fetchUsers}/>}/>
+        <Route path="/tabs"
+        element= {<FollowerTabs activeTab={activeTab} setActiveTab={setActiveTab} users={users} currentUser={currentUser} viewed={viewed} fetchUsers={fetchUsers} setViewed={setViewed}/>}/>
+        <Route path="/comment"
+        element = {<CommentForm commentedPhoto={commentedPhoto} comments={comments} setViewed={setViewed} fetchComments={fetchComments} currentUser={currentUser}/>} />
       </Routes>
     </main>
   ) 
