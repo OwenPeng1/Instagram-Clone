@@ -1,6 +1,6 @@
 import React from "react"
 import CommentCard from "./CommentCard";
-import {useNavigate, NavLink} from 'react-router-dom';
+import {useNavigate} from 'react-router-dom';
 
 
 function PhotoCard({picture, comments, setViewed, currentUser, fetchPhotos, setCommentedPhoto}){

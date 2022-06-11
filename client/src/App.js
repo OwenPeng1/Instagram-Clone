@@ -57,7 +57,7 @@ const [commentedPhoto, setCommentedPhoto] = useState(null)
     <main>
       <Routes>
         <Route path="/home" 
-        element={<PhotoContainer photos={photos} comments={comments} currentUser={currentUser} setViewed={setViewed} fetchPhotos={fetchPhotos} setCommentedPhoto={setCommentedPhoto}/>}/>
+        element={<PhotoContainer photos={photos} comments={comments} currentUser={currentUser} setViewed={setViewed} fetchPhotos={fetchPhotos} setCommentedPhoto={setCommentedPhoto} users={users}/>}/>
         <Route path="/"
         element= {<Login setUser={setUser} setCurrentUser={setCurrentUser} user={user}/>}/>
         <Route path="/user"

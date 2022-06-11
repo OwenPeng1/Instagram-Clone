@@ -4,7 +4,7 @@ import FollowerTabContentItem from "./FollowerTabContentItem";
 function FollowerTabContent({id, activeTab, users, profileUser, currentUser, setViewed}){
 
    
-
+console.log(currentUser)
 let usersList = []
 if (activeTab === "mutual"){
     for(let i=0; i<profileUser.following.length; i++){

@@ -2,7 +2,7 @@ import React from "react"
 import {useNavigate} from 'react-router-dom';
 import ProfilePicture from "./ProfilePicture"
 
-function Profile({viewed,photos, currentUser, fetchPhotos, setActiveTab, fetchUsers}){
+function Profile({viewed,photos, currentUser, fetchPhotos,fetchCurrentUser, setActiveTab, fetchUsers}){
 
 const userPhotos = []
 for (let i=0; i<photos.length; i++){
@@ -27,6 +27,7 @@ function handleFollow(){
         .then((response) => response.json())
         .then((json) => {console.log(json)
             fetchPhotos()
+            fetchCurrentUser()
             })
     
     fetch(`/update_following/${currentUser.id}`, {
@@ -41,6 +42,7 @@ function handleFollow(){
             .then((response) => response.json())
             .then((json) => {console.log(json)
              fetchPhotos()
+             fetchCurrentUser()
              })
     }
     const navigate = useNavigate()
@@ -74,6 +76,7 @@ function handleFollow(){
             .then((response) => response.json())
             .then((json) => {console.log(json)
             fetchPhotos()
+            fetchCurrentUser()
             })
         
         fetch(`/update_following/${currentUser.id}`, {
@@ -89,6 +92,7 @@ function handleFollow(){
                 .then((response) => response.json())
                 .then((json) => {console.log(json)
                 fetchPhotos()
+                fetchCurrentUser()
                 })
         }
 

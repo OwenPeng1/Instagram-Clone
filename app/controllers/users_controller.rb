@@ -48,6 +48,12 @@ def update_followers
     render json: user
 end  
 
+def update_stories
+    user = User.find_by(id: params[:id])
+    user.update(params.require(:user).permit(:stories, stories:[]))
+    render json: user
+end  
+
 private
 
     def error
