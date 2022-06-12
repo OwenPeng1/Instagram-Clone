@@ -6,8 +6,11 @@ import CreateUser from './CreateUser';
 import Profile from './Profile';
 import FollowerTabs from './FollowerTabs';
 import CommentForm from './CommentForm';
+import Stories from './Stories';
 import { useState, useEffect } from 'react';
 import {Routes, Route} from 'react-router-dom';
+import ProfileStories from './ProfileStories';
+import EditProfile from './EditProfile';
 
 function App() {
 const [photos, setPhotos] = useState([])
@@ -18,6 +21,7 @@ const [viewed, setViewed] = useState(null)
 const [activeTab, setActiveTab] = useState("")
 const [users, setUsers] = useState([])
 const [commentedPhoto, setCommentedPhoto] = useState(null)
+const [viewedStory, setViewedStory] = useState(null)
   
   function fetchPhotos(){
     fetch("/photos")
@@ -57,7 +61,7 @@ const [commentedPhoto, setCommentedPhoto] = useState(null)
     <main>
       <Routes>
         <Route path="/home" 
-        element={<PhotoContainer photos={photos} comments={comments} currentUser={currentUser} setViewed={setViewed} fetchPhotos={fetchPhotos} setCommentedPhoto={setCommentedPhoto} users={users}/>}/>
+        element={<PhotoContainer photos={photos} comments={comments} currentUser={currentUser} setViewed={setViewed} fetchPhotos={fetchPhotos} setCommentedPhoto={setCommentedPhoto} users={users} setViewedStory={setViewedStory}/>}/>
         <Route path="/"
         element= {<Login setUser={setUser} setCurrentUser={setCurrentUser} user={user}/>}/>
         <Route path="/user"
@@ -68,6 +72,12 @@ const [commentedPhoto, setCommentedPhoto] = useState(null)
         element= {<FollowerTabs activeTab={activeTab} setActiveTab={setActiveTab} users={users} currentUser={currentUser} viewed={viewed} fetchUsers={fetchUsers} setViewed={setViewed}/>}/>
         <Route path="/comment"
         element = {<CommentForm commentedPhoto={commentedPhoto} comments={comments} setViewed={setViewed} fetchComments={fetchComments} currentUser={currentUser}/>} />
+        <Route path="/stories"
+        element = {<Stories viewedStory={viewedStory} users={users} setViewed={setViewed}/>} />
+        <Route path="/profileStories"
+        element = {<ProfileStories viewed={viewed}/>} />
+        <Route path="/edit"
+        element = {<EditProfile currentUser={currentUser} fetchCurrentUser={fetchCurrentUser}/>} />
       </Routes>
     </main>
   ) 

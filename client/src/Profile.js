@@ -96,6 +96,18 @@ function handleFollow(){
                 })
         }
 
+function handleStories(){
+    if (viewed.stories){
+        navigate("/profileStories")
+    }
+}
+
+function handleEdit(){
+    navigate("/edit")
+}
+
+
+
     return(
         <main>
             <div>
@@ -105,11 +117,14 @@ function handleFollow(){
                 <h1 onClick={handleFollowing}>{userPhotos[0].user.following.length} following</h1>
                 <h1 onClick={handleFollowers}>{userPhotos[0].user.followers.length} followers</h1>
                 <h1>{viewed.bio}</h1>
-                <img src = {viewed.profile} style={{width: 300 ,height: 300}}/>
-                {userPhotos[0].user.followers.includes(currentUser.username) ?
+                <img onClick={handleStories} src = {viewed.profile} style={{width: 300 ,height: 300}}/>
+                {viewed.username===currentUser.username?(
+                    <button onClick = {handleEdit}>Edit Profile</button>
+                ): (
+                userPhotos[0].user.followers.includes(currentUser.username) ?
                     (<button onClick = {handleUnfollow}>Unfollow</button>) :
                     (<button onClick = {handleFollow}>Follow</button>)
-                }
+                )}
                 <ul>
                 {userPhotos.map(picture => 
                     <ProfilePicture picture ={picture}/>

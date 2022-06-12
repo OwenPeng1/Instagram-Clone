@@ -9,37 +9,46 @@
 Comment.destroy_all
 Photo.destroy_all
 User.destroy_all
+Message.destroy_all
 
 owen = User.create(name: "Owen Peng",
                 username: "OPeng",
                 password: "Peng",
                 bio: "Software Engineer",
                 profile: "https://quillandquire.com/wp-content/uploads/2019/08/Simu-Liu-Photo-Credit-Hayley-Andoff.jpg",
+                stories: ['https://api.time.com/wp-content/uploads/2022/05/TIM220606_SimuLiu-Cover.jpg']
                 )
 
 jayson = User.create(name: "Jayson Tatum",
                 username: "JTatum",
                 password: "Peng",
                 bio: "St.Louis born and raised",
-                profile: "https://celebnetworth.net/wp-content/uploads/2020/11/Jayson-Tatum-Bio-1024x768.jpg")
+                profile: "https://celebnetworth.net/wp-content/uploads/2020/11/Jayson-Tatum-Bio-1024x768.jpg",
+                stories: ['https://cdn.vox-cdn.com/thumbor/zpj-Il8lnh3LztfUrjN6DVuWlYg=/1400x0/filters:no_upscale()/cdn.vox-cdn.com/uploads/chorus_asset/file/19763703/1134849519.jpg.jpg']
+                )
 
 steph = User.create(name: "Stephen Curry",
                 username: "SCurry",
                 password: "Peng",
                 bio: "Greatest 3 Point Shooter of all time",
-                profile: "http://cdn.chatsports.com/thumbnails/5993-76171-original.jpeg")
+                profile: "http://cdn.chatsports.com/thumbnails/5993-76171-original.jpeg",
+                stories: ['https://i.ytimg.com/vi/M6OCoCvzeU8/maxresdefault.jpg'])
 
 lebron = User.create(name: "Lebron James",
                 username: "LJames",
                 password: "Peng",
                 bio: "Jordan played during a talent glut",
-                profile: "https://static.highsnobiety.com/thumbor/eamsHEgOsqwMKvzVtNwCmS-X7eQ=/fit-in/1200x720/smart/static.highsnobiety.com/wp-content/uploads/2020/02/21160908/lebron-james-uninterrupted-sued-feature.jpg")
+                profile: "https://static.highsnobiety.com/thumbor/eamsHEgOsqwMKvzVtNwCmS-X7eQ=/fit-in/1200x720/smart/static.highsnobiety.com/wp-content/uploads/2020/02/21160908/lebron-james-uninterrupted-sued-feature.jpg",
+                stories: ['https://res.cloudinary.com/teepublic/image/private/s--3OIz31gF--/t_Resized%20Artwork/c_fit,g_north_west,h_954,w_954/co_552680,e_outline:48/co_552680,e_outline:inner_fill:48/co_ffffff,e_outline:48/co_ffffff,e_outline:inner_fill:48/co_bbbbbb,e_outline:3:1000/c_mpad,g_center,h_1260,w_1260/b_rgb:eeeeee/t_watermark_lock/c_limit,f_auto,h_630,q_90,w_630/v1576122527/production/designs/7158683_1.jpg']
+                        )
 
 kawhi = User.create(name: "Kawhi Leonard",
                 username: "KLeonard",
                 password: "Peng",
                 bio: "Fun Guy",
-                profile: "https://s.yimg.com/uu/api/res/1.2/jMV24xlUjWdWd65qIsq7nw--~B/aD0zNjQ4O3c9NTQ3MjtzbT0xO2FwcGlkPXl0YWNoeW9u/https://media-mbst-pub-ue1.s3.amazonaws.com/creatr-images/2019-11/e5f8c020-0036-11ea-9fd7-86e1dea14a5d")
+                profile: "https://s.yimg.com/uu/api/res/1.2/jMV24xlUjWdWd65qIsq7nw--~B/aD0zNjQ4O3c9NTQ3MjtzbT0xO2FwcGlkPXl0YWNoeW9u/https://media-mbst-pub-ue1.s3.amazonaws.com/creatr-images/2019-11/e5f8c020-0036-11ea-9fd7-86e1dea14a5d",
+                stories: ['https://www.sportsmanor.com/wp-content/uploads/2021/06/kawhi-leonard-and-kishele-shipley.jpg']
+                )
 
 warmup = Photo.create(photo: "https://www.bostonherald.com/wp-content/uploads/migration/2018/04/11/041118celticssc003.jpg?w=879",
                     caption: "Ready",
