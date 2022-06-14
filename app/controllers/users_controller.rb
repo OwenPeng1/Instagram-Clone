@@ -61,7 +61,7 @@ private
     end
 
     def user_params
-        params.permit(:username, :password, :name, :stories, :bio, :profile)
+        params.permit(:username, :password, :name, :stories, :bio, :profile, :id)
     end
 
    

@@ -1,7 +1,7 @@
 import React, {useState} from "react"
 import {useNavigate} from 'react-router-dom';
 
-function EditProfile({currentUser, fetchCurrentUser}){
+function EditProfile({currentUser, fetchCurrentUser, fetchUsers, setViewed}){
 const [profile, setProfile] = useState(currentUser.profile)
 const [name, setName] = useState(currentUser.name)
 const [username, setUsername] = useState(currentUser.username)
@@ -23,12 +23,14 @@ function handleSubmit(e){
 })
 .then((response) => response.json())
 .then((json) => {console.log(json)
-                fetchCurrentUser()})
+                fetchCurrentUser()
+                fetchUsers()
+                setViewed(currentUser)})
 }
 
 const navigate = useNavigate()
 function handleBack(){
-    navigate("/profile")
+    navigate("/userProfile")
 }
 
     return(

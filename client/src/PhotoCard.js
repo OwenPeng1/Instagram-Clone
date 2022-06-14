@@ -12,8 +12,12 @@ for (let i=0; i<comments.length; i++){
     }}    
 const navigate = useNavigate()
 function handleClick(){
+    if(picture.user.username === currentUser.username){
+        navigate("/userProfile")
+    }
+    else{
     setViewed(picture.user)
-    navigate("/profile")
+    navigate("/profile")}
 }  
 
 function handleComment(){

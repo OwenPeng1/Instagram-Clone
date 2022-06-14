@@ -2,7 +2,7 @@ import React from "react"
 import {useNavigate} from 'react-router-dom';
 import ProfilePicture from "./ProfilePicture"
 
-function Profile({viewed,photos, currentUser, fetchPhotos,fetchCurrentUser, setActiveTab, fetchUsers}){
+function Profile({viewed,photos, currentUser, fetchPhotos,fetchCurrentUser, setActiveTab, fetchUsers, setViewedPicture}){
 
 const userPhotos = []
 for (let i=0; i<photos.length; i++){
@@ -102,12 +102,6 @@ function handleStories(){
     }
 }
 
-function handleEdit(){
-    navigate("/edit")
-}
-
-
-
     return(
         <main>
             <div>
@@ -118,16 +112,13 @@ function handleEdit(){
                 <h1 onClick={handleFollowers}>{userPhotos[0].user.followers.length} followers</h1>
                 <h1>{viewed.bio}</h1>
                 <img onClick={handleStories} src = {viewed.profile} style={{width: 300 ,height: 300}}/>
-                {viewed.username===currentUser.username?(
-                    <button onClick = {handleEdit}>Edit Profile</button>
-                ): (
-                userPhotos[0].user.followers.includes(currentUser.username) ?
+                 {userPhotos[0].user.followers.includes(currentUser.username) ?
                     (<button onClick = {handleUnfollow}>Unfollow</button>) :
                     (<button onClick = {handleFollow}>Follow</button>)
-                )}
+                }
                 <ul>
                 {userPhotos.map(picture => 
-                    <ProfilePicture picture ={picture}/>
+                    <ProfilePicture picture ={picture} setViewedPicture={setViewedPicture}/>
                 )}
                 </ul>
             </div>
