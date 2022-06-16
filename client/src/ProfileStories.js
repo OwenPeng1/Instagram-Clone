@@ -1,7 +1,7 @@
 import React, {useState} from "react"
 import {useNavigate} from 'react-router-dom';
 
-function ProfileStories({viewed}){
+function ProfileStories({viewed, currentUser}){
 const [storyIndex, setStoryIndex] = useState(0)
 
 const stories = []
@@ -12,7 +12,11 @@ for(let i=0; i<viewed.stories.length; i++){
 const navigate = useNavigate()
 function handleClick(){
     if(storyIndex === stories.length-1){
-        navigate("/profile")
+        if(viewed.username === currentUser.username){
+            navigate("/userProfile")
+        }
+        else {
+        navigate("/profile")}
     }
     setStoryIndex(storyIndex+1)
 }

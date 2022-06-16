@@ -43,7 +43,7 @@ private
     end
 
     def photo_params
-        params.require(:contact).permit(:photo,:likedBy, :caption, :user_id)
+        params.permit(:photo,:likedBy, :caption, :user_id)
     end
 
   

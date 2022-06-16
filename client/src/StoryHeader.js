@@ -9,18 +9,21 @@ const usersWithStories = usersWithoutCurrent.filter((user) => user.stories)
 
 const navigate = useNavigate()
 function handleClick(){
-    navigate("./addstory")
+    navigate("/addstory")
 }
 
     return(
-        <ul>
-            <li onClick = {handleClick}>
-                <img src = {currentUser.profile} style={{width: 50 ,height: 50}}/>
-            </li>
-            {usersWithStories.map(user => (
-            <StoryHeaderItem user={user} setViewedStory={setViewedStory} />
-                    ))}
-        </ul>
+        <div id= "storiesDiv">
+            <ul id="storiesList">
+                <li onClick = {handleClick}>
+                    <img className = "userBubble" src = {currentUser.profile} style={{width: 60 ,height: 60}}/>
+                    <h4 className="userName">{currentUser.username}</h4>
+                </li>
+                {usersWithStories.map(user => (
+                <StoryHeaderItem user={user} setViewedStory={setViewedStory} />
+                        ))}
+            </ul>
+        </div>
     )
 
 }

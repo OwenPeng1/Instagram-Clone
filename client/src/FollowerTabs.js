@@ -7,7 +7,11 @@ function FollowerTabs({activeTab, users, viewed, currentUser,setActiveTab, setVi
 
     const navigate = useNavigate()
     function handleBack(){
-        navigate("/profile")
+        if(viewed.username === currentUser.username){
+            navigate("/userProfile")
+        }
+        else{
+        navigate("/profile")}
     }
 
     let profileUser = {}

@@ -26,13 +26,14 @@ function filterUsers(usersArray, query){
 const filteredUsers = filterUsers(users, searchQuery)
 
     return(
-        <main>
+        <main id="searchBar">
             <form onSubmit = {handleSubmit} onClick = {handleClick}>
                 <input
                     value={searchQuery}
                     onChange={e => {setSearchQuery(e.target.value)}}
                     type="text"
-                    placeholder="Search Users"
+                    id= "searchInput"
+                    placeholder="Search"
                 />
             </form>
             { isClicked?( 

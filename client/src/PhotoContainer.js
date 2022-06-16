@@ -3,12 +3,13 @@ import {useNavigate} from 'react-router-dom';
 import PhotoCard from "./PhotoCard";
 import StoryHeader from "./StoryHeader";
 import Search from "./Search";
+import Header from "./Header";
 
-
-function PhotoContainer({comments, photos, currentUser, setViewed, fetchPhotos, setCommentedPhoto, users, setViewedStory}){
+function PhotoContainer({comments, photos, currentUser, setViewed, fetchPhotos, setCommentedPhoto, users, setViewedStory, fetchComments}){
 
 const navigate = useNavigate()
 function handleProfile(){
+    setViewed(currentUser)
     navigate('/userProfile')
 }
 
@@ -18,15 +19,12 @@ function handleCreate(){
 
 
     return(
-        <main>
-            <h1>Hello {currentUser.name}</h1>
-            <Search users={users} setViewed={setViewed}/>
+        <main className = "homeScreen">
+            <Header setViewed={setViewed} currentUser={currentUser} users={users}/>
             <StoryHeader users={users} setViewedStory={setViewedStory} currentUser={currentUser} />
-            <img src = {currentUser.profile} onClick={() => handleProfile()} style={{width: 50 ,height: 50}}/>
-            <button onClick = {handleCreate}>+</button>
-            <ul>
+            <ul id="pictures">
                 {photos.map(picture => 
-                    <PhotoCard picture ={picture} comments={comments} setViewed={setViewed} currentUser={currentUser} fetchPhotos={fetchPhotos} setCommentedPhoto={setCommentedPhoto}/>
+                    <PhotoCard picture ={picture} comments={comments} setViewed={setViewed} currentUser={currentUser} fetchPhotos={fetchPhotos} setCommentedPhoto={setCommentedPhoto} fetchComments={fetchComments} setViewedStory={setViewedStory}/>
                 )}
             </ul>
         </main>

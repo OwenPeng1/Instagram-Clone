@@ -1,8 +1,9 @@
 import React from "react"
 import {useNavigate} from 'react-router-dom';
 import ProfilePicture from "./ProfilePicture"
+import Header from "./Header";
 
-function Profile({viewed,photos, currentUser, fetchPhotos,fetchCurrentUser, setActiveTab, fetchUsers, setViewedPicture}){
+function Profile({viewed,photos, currentUser, fetchPhotos,fetchCurrentUser, setActiveTab, fetchUsers, setViewedPicture, setViewed, users}){
 
 const userPhotos = []
 for (let i=0; i<photos.length; i++){
@@ -46,9 +47,6 @@ function handleFollow(){
              })
     }
     const navigate = useNavigate()
-    function handleBack(){
-        navigate("/home")
-    }
 
     function handleFollowers(){
         setActiveTab("followers")
@@ -105,7 +103,7 @@ function handleStories(){
     return(
         <main>
             <div>
-                <button onClick = {handleBack}>Back</button>
+            <Header setViewed={setViewed} currentUser={currentUser} users={users}/>
                 <h1>{viewed.username}</h1>
                 <h1>{userPhotos.length} Posts</h1>
                 <h1 onClick={handleFollowing}>{userPhotos[0].user.following.length} following</h1>

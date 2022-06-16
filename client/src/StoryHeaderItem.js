@@ -9,8 +9,9 @@ function handleClick(){
     navigate("/stories")
 }    
     return(
-        <li onClick = {handleClick}>
-             <img src = {user.profile} style={{width: 50 ,height: 50}}/>
+        <li className="storyBubble" onClick = {handleClick}>
+             <img className = "storyBubbleImage" src = {user.profile} style={{width: 60 ,height: 60}}/>
+             <h4 id="storyNames">{user.username}</h4>
         </li>
     )
 
