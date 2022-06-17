@@ -30,14 +30,17 @@ function handleBack(){
 
     return(
         <main>
-            <button onClick = {handleBack}>Back</button>
-            <form onSubmit={handleSubmit}>
-            <h2>Image URL</h2>
-            <input onChange={(e) => setPicture(e.target.value)}/>
-            <h2>Image Caption</h2>
-            <input onChange={(e) => setCaption(e.target.value)}/>
-            <button type="submit">Create</button>
-            </form>
+            <button onClick = {handleBack}>Cancel</button>
+            <div id="createPost">  
+                <h1 id="createInstructions">Create a Post</h1>
+                {picture? 
+                (<img id="imagePreview" src = {picture}  style={{width: 300 ,height: 300}}/>) : (<div></div>)}
+                <form onSubmit={handleSubmit}> 
+                <input id="createImage" placeholder= "Image URL"onChange={(e) => setPicture(e.target.value)}/>
+                <input id="createCaption" placeholder = "Caption" onChange={(e) => setCaption(e.target.value)}/>
+                <button id="submitPost"type="submit">Create</button>
+                </form>
+            </div>
         </main>
     )
 

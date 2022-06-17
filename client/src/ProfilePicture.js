@@ -9,8 +9,8 @@ function handleClick(){
     setViewedPicture(picture)
 }    
     return(
-        <li>
-            <img src = {picture.photo} onClick={() => handleClick()}style={{width: 1200 ,height: 1000}}/>
+        <li id="pictureListItem">
+            <img src = {picture.photo} onClick={() => handleClick()}style={{width: 280 ,height: 280}}/>
         </li>
     )
 

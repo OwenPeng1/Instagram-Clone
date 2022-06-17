@@ -24,17 +24,15 @@ const [createUser, setCreateUser] = useState({name:"", username:"", password:""}
     return(
         <main>
             <div id="createUser">
-            <h1 id="createUserHeader">Create User</h1>
-            <form id="createForm" onSubmit= {handleSubmit}>
-                <h2>Name</h2>
-                <input className="createInput" onChange ={handleUserInfo} name="name"/>
-                <h2>Username</h2>
-                <input className="createInput"  onChange ={handleUserInfo} name="username"/>
-                <h2>Password</h2>
-                <input onChange ={handleUserInfo} className="createInput" type="password"name="password"/>
-                <button type="submit">Submit</button>
-            </form>
-            <NavLink id="doneCreate"exact to ="/">Done</NavLink>
+            <img id="loginLogo" src = {'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Instagram_logo.svg/1280px-Instagram_logo.svg.png'}  style={{width: 180 ,height: 60}}/>
+                <form id="createForm" onSubmit= {handleSubmit}>
+                    <input id="createName"className="createInput" placeholder = "Name" onChange ={handleUserInfo} name="name"/>
+                    <input id="createUsername" className="createInput"  placeholder = "Username" onChange ={handleUserInfo} name="username"/>
+                    <input id="createPassword" onChange ={handleUserInfo} className="createInput" placeholder = "Password" type="password"name="password"/>
+                    <button id="signupButton" type="submit">Sign Up</button>
+                </form>
+                <h4 id="doneSigning">Done Signing Up?</h4>
+                <NavLink id="doneCreate"exact to ="/">Login</NavLink>
             </div>
         </main>
     )

@@ -39,16 +39,19 @@ function handleProfile(){
     navigate("/profile")
 }
 
+function handleBack(){
+    navigate("/home")
+}
+
     return(
         <main>
-            <div>
-                <h1 onClick={handleProfile}>{arrayOfUserStories[storyIndex].username}</h1>
-                <div onClick = {handleProfile}>
-                <img  src = {arrayOfUserStories[storyIndex].profile} style={{width: 50 ,height: 50}}/>
+            <button id="storiesBackButton" onClick={handleBack}>X</button>
+            <div id="wholeStory">
+                <div id="storiesUserProfile">    
+                    <h4 id="storiesUsername" onClick={handleProfile}>{arrayOfUserStories[storyIndex].username}</h4>
+                    <img id="storiesProfile" onClick={() => handleProfile()} src = {arrayOfUserStories[storyIndex].profile} style={{width: 30 ,height: 30}}/>
                 </div>
-                <div onClick={handleClick}>
-                <img src = {arrayOfUserStories[storyIndex].story} style={{width: 1000 ,height: 1000}}/>
-                </div>
+                <img id="storyImage" onClick={() => handleClick()}src = {arrayOfUserStories[storyIndex].story} style={{width: 500 ,height: 500}}/>
             </div>
         </main>
     )

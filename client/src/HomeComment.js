@@ -2,7 +2,7 @@ import React, {useState} from "react"
 import CommentCard from "./CommentCard"
 import {useNavigate} from 'react-router-dom';
 
-function ProfilePicturesComments({viewedPicture, viewed, currentUser, comments, setViewed, fetchPhotos, setCommentedPhoto, fetchComments}){
+function HomeComment({viewedPicture, viewed, currentUser, comments, setViewed, fetchPhotos, setCommentedPhoto, fetchComments}){
 const [newCommentText, setNewCommentText]= useState("")
 
     const photoComments = []
@@ -73,17 +73,17 @@ const [newCommentText, setNewCommentText]= useState("")
             fetchComments()})}
 
     function handleBack(){
-        navigate('/profile')
+        navigate('/home')
     }   
         
     return(
         <main>
             <button className="backButton"onClick = {handleBack}>X</button>
             <div id="viewedPhotoDiv"> 
-                <img id="viewedPicture"src = {viewedPicture.photo} style={{width: 800 ,height: 800}}/>
+                <img id="viewedPicture" src = {viewedPicture.photo} style={{width: 800 ,height: 800}}/>
             </div>
             <div id="displayedWords"> 
-                <img id="viewedPictureProfile" src = {viewedPicture.user.profile} style={{width: 30 ,height: 30}}/>   
+                <img id="viewedPictureProfile" src = {viewedPicture.user.profile} style={{width: 30 ,height: 30}}/>  
                 <h4 id="topViewedPictureUsername" onClick = {handleClick}>{viewedPicture.user.username}</h4>
                 <div id="captionDiv">
                     <span id="captionUsername">{viewedPicture.user.username} </span>
@@ -109,4 +109,4 @@ const [newCommentText, setNewCommentText]= useState("")
 
 }
 
-export default ProfilePicturesComments;
+export default HomeComment;

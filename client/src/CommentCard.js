@@ -11,8 +11,8 @@ function CommentCard({comment, setViewed}){
 
     return(
         <li>
-            <h3 onClick = {handleClick}>{comment.user.username}</h3>
-            <h3>{comment.text}</h3> 
+            <span id="commentUsername" onClick = {handleClick}>{comment.user.username} </span>
+            <span>{comment.text}</span> 
         </li>
     )
 

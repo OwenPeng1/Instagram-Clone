@@ -5,7 +5,7 @@ import StoryHeader from "./StoryHeader";
 import Search from "./Search";
 import Header from "./Header";
 
-function PhotoContainer({comments, photos, currentUser, setViewed, fetchPhotos, setCommentedPhoto, users, setViewedStory, fetchComments}){
+function PhotoContainer({comments, photos, currentUser, setViewed, fetchPhotos, setCommentedPhoto, users, setViewedStory, fetchComments, setViewedPicture}){
 
 const navigate = useNavigate()
 function handleProfile(){
@@ -24,7 +24,7 @@ function handleCreate(){
             <StoryHeader users={users} setViewedStory={setViewedStory} currentUser={currentUser} />
             <ul id="pictures">
                 {photos.map(picture => 
-                    <PhotoCard picture ={picture} comments={comments} setViewed={setViewed} currentUser={currentUser} fetchPhotos={fetchPhotos} setCommentedPhoto={setCommentedPhoto} fetchComments={fetchComments} setViewedStory={setViewedStory}/>
+                    <PhotoCard picture ={picture} comments={comments} setViewed={setViewed} currentUser={currentUser} fetchPhotos={fetchPhotos} setCommentedPhoto={setCommentedPhoto} fetchComments={fetchComments} setViewedStory={setViewedStory} setViewedPicture={setViewedPicture}/>
                 )}
             </ul>
         </main>

@@ -1,7 +1,7 @@
 import React, {useState} from "react"
 import {useNavigate} from 'react-router-dom';
 
-function ProfileStories({viewed, currentUser}){
+function HomeStories({viewed, currentUser}){
 const [storyIndex, setStoryIndex] = useState(0)
 
 const stories = []
@@ -16,18 +16,13 @@ function handleClick(){
             navigate("/userProfile")
         }
         else {
-        navigate("/profile")}
+        navigate("/home")}
     }
     setStoryIndex(storyIndex+1)
 }
 
-function handleBack(){
-    navigate("/profile")
-}
-
     return(
         <main>
-            <button id="storiesBackButton" onClick={handleBack}>X</button>
             <div id="wholeStory">
                 <div>    
                     <h4 id="storiesUsername">{viewed.username}</h4>
@@ -40,4 +35,4 @@ function handleBack(){
 
 }
 
-export default ProfileStories;
+export default HomeStories;

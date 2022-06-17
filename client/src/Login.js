@@ -34,18 +34,17 @@ function Login({user, setCurrentUser, setUser}){
 
     return(
         <main>
-            <div className="Login">
-        <h1  id="welcomeLogin">Welcome </h1>
-        <form id="loginForm" onSubmit={handleSubmit}>
-          <h2>Username</h2>
-          <input className="loginInput"onChange={handleUserLogin} name="username"/>
-          <h2>Password</h2>
-          <input className="loginInput" onChange={handleUserLogin} name="password" type="password"/>
-          <input type="submit"/>
-        </form>
-        <h3> Don't have an Account? </h3>
-        {error?<div>{error}</div>:null}
-        <NavLink id="signUp" exact to ="/User"> Sign Up! </NavLink>
+        <div className="Login">
+            <img id="loginLogo" src = {'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Instagram_logo.svg/1280px-Instagram_logo.svg.png'}  style={{width: 180 ,height: 60}}/>
+            <form id="loginForm" onSubmit={handleSubmit}>
+            <input id = "loginUsername"className="loginInput"onChange={handleUserLogin} placeholder = "Username" name="username"/>
+            <input id = "loginPassword" className="loginInput" onChange={handleUserLogin} placeholder = "Password" name="password" type="password"/>
+            <button id="loginButton" type="submit">Log In</button>
+            </form>
+            <div id="createUserDiv">    
+                <h5 id="createUserText"> Don't have an Account? </h5>
+                <NavLink id="signUp" exact to ="/User"> Sign Up! </NavLink>
+            </div>
         </div>
         </main>
     )

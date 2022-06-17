@@ -104,21 +104,29 @@ function handleStories(){
         <main>
             <div>
             <Header setViewed={setViewed} currentUser={currentUser} users={users}/>
-                <h1>{viewed.username}</h1>
-                <h1>{userPhotos.length} Posts</h1>
-                <h1 onClick={handleFollowing}>{userPhotos[0].user.following.length} following</h1>
-                <h1 onClick={handleFollowers}>{userPhotos[0].user.followers.length} followers</h1>
-                <h1>{viewed.bio}</h1>
-                <img onClick={handleStories} src = {viewed.profile} style={{width: 300 ,height: 300}}/>
-                 {userPhotos[0].user.followers.includes(currentUser.username) ?
-                    (<button onClick = {handleUnfollow}>Unfollow</button>) :
-                    (<button onClick = {handleFollow}>Follow</button>)
-                }
-                <ul>
-                {userPhotos.map(picture => 
-                    <ProfilePicture picture ={picture} setViewedPicture={setViewedPicture}/>
-                )}
-                </ul>
+                <div id="profileInfo">
+                    <h1 id="profileUsername">{viewed.username}</h1>
+                    {userPhotos[0].user.followers.includes(currentUser.username) ?
+                    (<button className="followButton" onClick = {handleUnfollow}>Unfollow</button>) :
+                    (<button id="followButton" className="followButton" onClick = {handleFollow}>Follow</button>)
+                    }  
+                    <div id="countsDiv">
+                        <span className="userCounts">{userPhotos.length} Posts</span>
+                        <span className="userCounts" onClick={handleFollowing}>{userPhotos[0].user.following.length} following</span>
+                        <span className="userCounts" onClick={handleFollowers}>{userPhotos[0].user.followers.length} followers</span>
+                    </div>
+                    <h3>{viewed.name}</h3>
+                    <h3 id="profileBio">{viewed.bio}</h3>
+                     
+                </div>
+                <img id="profileProfilePicture" onClick={handleStories} src = {viewed.profile} style={{width: 175 ,height: 175}}/>
+                <div id="profilePictureDiv"> 
+                    <ul id="profilePictureList">
+                    {userPhotos.map(picture => 
+                        <ProfilePicture picture ={picture} setViewedPicture={setViewedPicture}/>
+                    )}
+                    </ul>
+                </div>
             </div>
         </main>
     )

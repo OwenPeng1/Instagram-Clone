@@ -108,7 +108,9 @@ ul {
 }
 
 #commentPost{
-  color: #00FFFF;
+  color: #00BFFF;
+  height: 35px;
+  border:none
 }
 
 #homeProfile{
@@ -116,19 +118,315 @@ ul {
   border-radius: 50%;
   padding: 0px 5px;
   position: relative;
-  top: 10px
+  top: -5px
 }
 
-#usernameProfile{
-  border: 1px;
-  border-color: #dfdfdf;
-  border-style: solid;
-  width: 96%;
-}
 
 #wholePost{
   border: 1px;
   border-color: #dfdfdf;
   border-style: solid;
 }
+
+#commentButton{
+  position:absolute
+}
+
+.likeButton{
+  width:30px;
+  height: 30px
+}
+
+#captionUsername{
+  font-weight:bold;
+}
+
+#commentUsername{
+  font-weight:bold;
+}
+
+#captionDiv{
+  padding: 0px 0px 10px 0px
+}
+
+#commentsLikes{
+  position:relative;
+  left: 10px
+}
+
+#photoAddComment{
+  width: 600px;
+  height: 30px;
+}
+
+#addCommentDiv{
+  padding: 15px 0px 0px 0px
+}
+
+#profileInfo{
+  position:absolute;
+  left: 750px;
+  top: 70px
+}
+
+.followButton{
+  position: absolute;
+  top: 33px;
+  left: 190px
+}
+
+#profileUsername{
+  font-weight: normal;
+}
+
+#followButton{
+  color: white;
+  background-color: #00BFFF;
+  border: none;
+  height: 20px;
+  width: 70px;
+}
+
+.userCounts{
+  padding: 0px 50px 0px 0px
+}
+
+#profileBio{
+  font-weight: normal;
+}
+
+#profileProfilePicture{
+  border-radius: 50%;
+  position: absolute;
+  top: 80px;
+  left: 480px
+}
+
+#profilePictureDiv{
+  position: absolute;
+  top: 300px;
+  left: 450px;
+  width: 1000px
+}
+
+#profilePictureList > li{
+  display: inline-block
+}
+
+#pictureListItem{
+  padding: 0px 30px 0px 0px
+}
+
+.backButton{
+  position:absolute;
+  right: 20px
+}
+
+#viewedPhotoDiv{
+  position:absolute;
+  left: 300px;
+  top: 40px
+}
+
+#displayedWords{
+  position:absolute;
+  left: 1150px;
+  background-color: white;
+  top: 20px
+}
+
+#captionUsername{
+  font-weight: bold
+}
+
+#viewedPictureCaptions > li{
+  padding: 10px 0px
+}
+
+#viewedPictureProfile{
+  position: absolute;
+  top: 15px;
+  border-radius: 50%;
+}
+
+#topViewedPictureUsername{
+  position: relative;
+  left: 40px
+}
+
+#wholeStory{
+  position:absolute;
+  left: 660px;
+  border: 1px;
+  border-color: #dfdfdf;
+  border-style: solid;
+}
+
+#storiesProfile{
+  position:absolute;
+  top: 30px;
+  border-radius: 50%;
+}
+
+#storiesUsername{
+  position: absolute;
+  top: 14px;
+  left: 40px
+}
+
+#storyImage{
+  position:absolute;
+  top: 70px
+}
+
+#storiesBackButton{
+  position:absolute;
+  right: 20px;
+  top: 20px;
+  height: 30px;
+  width: 30px
+}
+
+#loginUsername{
+  position:absolute;
+  left: -50px;
+  top: 90px
+}
+#loginPassword{
+  position:absolute;
+  left: -50px;
+  top: 130px
+}
+
+.loginInput{
+  width: 300px;
+  height: 30px
+}
+
+#loginButton{
+  position:absolute;
+  left: -50px;
+  top: 180px;
+  width: 310px;
+  height: 30px;
+  background-color: #1E90FF;
+  color: white;
+  font-weight: bold
+}
+
+#createUserText{
+  position:absolute;
+  left: 0px;
+  top: 230px;
+  font-weight: normal
+}
+
+#signUp{
+  position: absolute;
+  left: 150px;
+  top: 250px;
+  width: 100px
+}
+
+.Login{
+  position: absolute;
+  left: 800px;
+  top: 130px;
+}
+
+#createUser{
+  position: absolute;
+  left: 800px;
+  top: 80px
+}
+
+#createName{
+  position: absolute;
+  top: 80px;
+  left: -60px;
+  width: 300px;
+  height: 25px
+}
+
+#createUsername{
+  position: absolute;
+  width: 300px;
+  left: -60px;
+  top: 130px;
+  height: 25px
+}
+
+#createPassword{
+  position: absolute;
+  width: 300px;
+  height: 25px;
+  left: -60px;
+  top: 180px
+}
+
+#signupButton{
+  position:absolute;
+  width:308px;
+  height: 30px;
+  left: -60px;
+  top: 240px;
+  background-color: #1E90FF;
+  color: white;
+}
+
+#doneSigning{
+  position: absolute;
+  top: 300px;
+  left: -10px;
+  font-weight: normal
+}
+
+#doneCreate{
+  position:absolute;
+  top: 321px;
+  left: 130px
+}
+
+#createPost{
+  position:absolute;
+  left: 790px;
+  top: 120px
+}
+
+#createInstructions{
+  font-weight: normal
+}
+
+#imagePreview{
+  position:absolute;
+  left: -40px
+}
+
+#createImage{
+  position: absolute;
+  top: 400px;
+  left: -40px;
+  width: 300px;
+  height: 25px
+}
+
+#createCaption{
+  position: absolute;
+  width: 300px;
+  left: -40px;
+  top: 440px;
+  height: 25px
+}
+
+#submitPost{
+  position: absolute;
+  width: 310px;
+  height: 25px;
+  left: -40px;
+  top: 490px;
+  background-color: #1E90FF;
+  color: white;
+}
+
+
 

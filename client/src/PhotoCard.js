@@ -3,7 +3,7 @@ import CommentCard from "./CommentCard";
 import {useNavigate} from 'react-router-dom';
 
 
-function PhotoCard({picture, comments, setViewed, currentUser, fetchPhotos, fetchComments, setViewedStory}){
+function PhotoCard({picture, comments, setViewed, currentUser, fetchPhotos, fetchComments, setViewedStory, setViewedPicture}){
 const [newCommentText, setNewCommentText]= useState("")
 
 const photoComments = []
@@ -70,31 +70,47 @@ function handleUnlike(){
             fetchPhotos()
             })
 }
-function handleClick(){
+function handleStory(){
     setViewedStory(picture.user)
-    navigate("/stories")
+    setViewed(picture.user)
+    navigate("/homeStory")
 }    
-    
+
+function handleComment(){
+    setViewedPicture(picture)
+    navigate('/homeComment')
+}
+
+
     return(
         <li>
             <div id="wholePost">
                 <div id="usernameProfile">
-                    <img id="homeProfile" src = {picture.user.profile} style={{width: 35 ,height: 35}}/>
+                    <img id="homeProfile" src = {picture.user.profile} onClick={() => handleStory()} style={{width: 35 ,height: 35}}/>
                     <h3  id="homeUsername" onClick = {handleClick}>{picture.user.username}</h3>
                 </div>
                 <img src = {picture.photo} style={{width: 610 ,height: 600}}/>
-                {picture.likedBy.includes(currentUser.username) ?
-                        (<button onClick = {handleUnlike}>❤</button>) :
-                        (<button onClick = {handleLike}>♡</button>)
-                    }
-                <h1>{picture.likedBy.length} likes</h1>
-                <h1>{picture.caption}</h1>
-                <ul>
-                    {photoComments.map(comment => 
-                        <CommentCard comment={comment} setViewed={setViewed}/>)}
-                </ul>
-                <form onSubmit={handleSubmit}>
-                    <input type="text" value={newCommentText} placeholder="Add a new comment" onChange={(e) => setNewCommentText(e.target.value)}/>
+                <div id="photoButtons">    
+                    {picture.likedBy.includes(currentUser.username) ?
+                            (<button className="likeButton" onClick = {handleUnlike}>❤</button>) :
+                            (<button className="likeButton" onClick = {handleLike}>♡</button>)
+                        }
+                    <img id="commentButton" src = {'https://static.thenounproject.com/png/3460458-200.png'} onClick={() => handleComment()} style={{width: 30 ,height: 30}}/>
+                </div>
+                <div id="commentsLikes">
+                    {picture.likedBy.length === 1 ?
+                    (<h4>1 like</h4>): (<h4>{`${picture.likedBy.length} likes`}</h4>)}
+                    <div id="captionDiv">    
+                        <span id="captionUsername" onClick={handleClick}>{picture.user.username} </span>
+                        <span>{picture.caption}</span>
+                    </div>
+                    <ul>
+                        {photoComments.map(comment => 
+                            <CommentCard comment={comment} setViewed={setViewed}/>)}
+                    </ul>
+                </div>
+                <form id="addCommentDiv" onSubmit={handleSubmit}>
+                    <input id="photoAddComment" type="text" value={newCommentText} placeholder="Add a comment" onChange={(e) => setNewCommentText(e.target.value)}/>
                     <button id="commentPost" type="submit" onSubmit={handleSubmit}>Post</button>
                 </form>
             </div>

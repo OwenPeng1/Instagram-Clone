@@ -41,18 +41,25 @@ function handleStories(){
         <main>
             <div>
                 <Header setViewed={setViewed} currentUser={currentUser} users={users}/>
-                <h1>{currentUser.username}</h1>
-                <h1>{userPhotos.length} Posts</h1>
-                <h1 onClick={handleFollowing}>{currentUser.following.length} following</h1>
-                <h1 onClick={handleFollowers}>{currentUser.followers.length} followers</h1>
-                <h1>{currentUser.bio}</h1>
-                <img onClick={handleStories} src = {currentUser.profile} style={{width: 300 ,height: 300}}/>
-                <button onClick = {handleEdit}>Edit Profile</button>
-                <ul>
-                {userPhotos.map(picture => 
-                    <ProfilePicture picture ={picture} setViewedPicture={setViewedPicture}/>
-                )}
-                </ul>
+                <div id="profileInfo">
+                    <h1 id="profileUsername">{currentUser.username}</h1>
+                    <button className="followButton" onClick = {handleEdit}>Edit Profile</button>
+                    <div id="countsDiv">
+                        <span className="userCounts">{userPhotos.length} Posts</span>
+                        <span className="userCounts" onClick={handleFollowing}>{currentUser.following.length} following</span>
+                        <span className="userCounts" onClick={handleFollowers}>{currentUser.followers.length} followers</span>
+                    </div>
+                    <h3>{currentUser.name}</h3>
+                    <h3 id="profileBio">{currentUser.bio}</h3>
+                  </div>
+                  <img id="profileProfilePicture" onClick={handleStories} src = {currentUser.profile} style={{width: 175 ,height: 175}}/>
+                  <div id="profilePictureDiv"> 
+                    <ul id="profilePictureList">
+                    {userPhotos.map(picture => 
+                        <ProfilePicture picture ={picture} setViewedPicture={setViewedPicture}/>
+                    )}
+                    </ul>
+                </div>
             </div>
         </main>
     )

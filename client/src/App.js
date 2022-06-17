@@ -15,6 +15,8 @@ import ProfilePicturesComments from './ProfilePicturesComments';
 import UserProfile from './UserProfile';
 import CreatePost from './CreatePost';
 import CreateStory from './CreateStory';
+import HomeStories from './HomeStories';
+import HomeComment from './HomeComment';
 
 function App() {
 const [photos, setPhotos] = useState([])
@@ -66,7 +68,7 @@ const [viewedPicture, setViewedPicture] = useState(null)
     <main>
       <Routes>
         <Route path="/home" 
-        element={<PhotoContainer photos={photos} comments={comments} currentUser={currentUser} setViewed={setViewed} fetchPhotos={fetchPhotos} setCommentedPhoto={setCommentedPhoto} users={users} setViewedStory={setViewedStory} fetchComments={fetchComments} />}/>
+        element={<PhotoContainer photos={photos} comments={comments} currentUser={currentUser} setViewed={setViewed} fetchPhotos={fetchPhotos} setCommentedPhoto={setCommentedPhoto} users={users} setViewedStory={setViewedStory} fetchComments={fetchComments} setViewedPicture={setViewedPicture}/>}/>
         <Route path="/"
         element= {<Login setUser={setUser} setCurrentUser={setCurrentUser} user={user}/>}/>
         <Route path="/user"
@@ -91,6 +93,10 @@ const [viewedPicture, setViewedPicture] = useState(null)
         element = {<CreatePost currentUser={currentUser} fetchPhotos={fetchPhotos}/>} />
         <Route path="/addStory"
         element = {<CreateStory currentUser={currentUser} fetchUsers={fetchUsers}/>} />
+        <Route path= "/homeStory"
+        element ={<HomeStories viewed={viewed} currentUser={currentUser}/>} />
+        <Route path ="/homeComment"
+        element = {<HomeComment viewedPicture={viewedPicture} viewed={viewed} currentUser={currentUser} comments={comments} setViewed={setViewed} fetchPhotos={fetchPhotos} setCommentedPhoto={setCommentedPhoto} fetchComments={fetchComments}/>}/>
       </Routes>
     </main>
   ) 
