@@ -3,7 +3,7 @@ import CommentCard from "./CommentCard";
 import {useNavigate} from 'react-router-dom';
 
 
-function PhotoCard({picture, comments, setViewed, currentUser, fetchPhotos, fetchComments, setViewedStory, setViewedPicture}){
+function PhotoCard({picture, comments, setViewed, currentUser, fetchPhotos, fetchComments, setViewedStory, setViewedPicture, setActiveTab}){
 const [newCommentText, setNewCommentText]= useState("")
 
 const photoComments = []
@@ -81,6 +81,11 @@ function handleComment(){
     navigate('/homeComment')
 }
 
+function handleChat(){
+    setActiveTab(picture.user.username)
+    navigate('/messages')
+}
+
 
     return(
         <li>
@@ -96,6 +101,7 @@ function handleComment(){
                             (<button className="likeButton" onClick = {handleLike}>♡</button>)
                         }
                     <img id="commentButton" src = {'https://static.thenounproject.com/png/3460458-200.png'} onClick={() => handleComment()} style={{width: 30 ,height: 30}}/>
+                    <button onClick={handleChat}>Chat</button>
                 </div>
                 <div id="commentsLikes">
                     {picture.likedBy.length === 1 ?

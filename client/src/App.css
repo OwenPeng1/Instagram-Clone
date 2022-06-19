@@ -428,5 +428,107 @@ ul {
   color: white;
 }
 
+#EditProfile{
+  position:absolute;
+  left: 850px
+}
+
+#changeProfile{
+  position: absolute;
+  left: -180px;
+  top: 300px
+}
+
+#changeProfileInput{
+  position: absolute;
+  left: 0px;
+  top: 328px;
+  width: 300px
+
+}
+
+#changeName{
+  position:absolute;
+  left: -180px;
+  top: 350px
+}
+
+#changeNameInput{
+  position: absolute;
+  top: 375px;
+  width: 300px
+}
+
+#changeUsername{
+  position:absolute;
+  top: 395px;
+  left: -180px
+}
+
+#changeUsernameInput{
+  position: absolute;
+  top: 421px;
+  width: 300px
+}
+
+#changeBio{
+  position:absolute;
+  top: 440px;
+  left: -180px
+}
+
+#changeBioInput{
+  position: absolute;
+  top: 465px;
+  width: 300px
+}
+
+
+#sampleProfilePicture{
+  position:absolute;
+  left: -70px
+}
+
+#submitEdit{
+  position: absolute;
+  width: 300px;
+  top: 520px;
+  background-color: #1E90FF;
+  color: white;
+  height: 30px
+}
+
+#usernameTab{
+  position:absolute;
+  left: 500px;
+  top :100px
+}
+
+#chats{
+  position: absolute;
+  left: 700px;
+}
+
+#chatName{
+  position: relative;
+}
+
+#chatProfile{
+  position: relative;
+  left: -70px;
+  top: -60px
+}
+
+.receivedMessage{
+  position:relative;
+  left: 300px
+}
+
+.sentMessage{
+  position: relative;
+  left: 500px
+}
+
+
 
 

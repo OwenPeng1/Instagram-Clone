@@ -175,3 +175,7 @@ Comment.create(text: "Didn't know you had a sixpack",
 user_id: kawhi.id,
 photo_id: selfie.id)
 
+Message.create(text: "Thank you for being a fan",
+                sender: 'SCurry',
+                recipient: 'OPeng',
+                date: Time.now)

@@ -36,34 +36,40 @@ function handleBack(){
     return(
         <main>
             <button onClick={handleBack}>Back</button>
-            <form onSubmit={handleSubmit}>
-            <img src = {currentUser.profile} style={{width: 200 ,height: 200}}/>
-            <h2>New Profile Picture</h2>
-            <input
-                name="profile"
-                onChange={(e) => setProfile(e.target.value)}
-                value={profile}
-            />
-            <h2>Name</h2>
-            <input
-                name="name"
-                onChange={(e) => setName(e.target.value)}
-                value={name}
-            />
-            <h2>Username</h2>
-            <input
-                name="username"
-                onChange={(e) => setUsername(e.target.value)}
-                value={username}
-            />
-            <h2>Bio</h2>
-            <input
-                name="bio"
-                onChange={(e) => setBio(e.target.value)}
-                value={bio}
-            />
-            <button type="submit">Submit</button>
-            </form>
+            <div id="EditProfile">
+                <form onSubmit={handleSubmit}>
+                <img id="sampleProfilePicture"src = {currentUser.profile} style={{width: 300 ,height: 300}}/>
+                <h2 id="changeProfile">Profile Picture</h2>
+                <input
+                    name="profile"
+                    id="changeProfileInput"
+                    onChange={(e) => setProfile(e.target.value)}
+                    value={profile}
+                />
+                <h2 id="changeName">Name</h2>
+                <input
+                    name="name"
+                    id="changeNameInput"
+                    onChange={(e) => setName(e.target.value)}
+                    value={name}
+                />
+                <h2 id="changeUsername">Username</h2>
+                <input
+                    name="username"
+                    id="changeUsernameInput"
+                    onChange={(e) => setUsername(e.target.value)}
+                    value={username}
+                />
+                <h2 id="changeBio">Bio</h2>
+                <input
+                    name="bio"
+                    id="changeBioInput"
+                    onChange={(e) => setBio(e.target.value)}
+                    value={bio}
+                />
+                <button id="submitEdit" type="submit">Submit</button>
+                </form>
+            </div>
         </main>
     )
 

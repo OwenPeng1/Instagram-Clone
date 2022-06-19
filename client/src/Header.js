@@ -1,9 +1,6 @@
 import React  from "react"
 import Search from "./Search";
 import {useNavigate} from 'react-router-dom';
-import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
 
 function Header({setViewed, currentUser, users}){
 
@@ -20,6 +17,10 @@ function handleCreate(){
 function handleHome(){
     navigate('/home')
 }
+
+function handleChat(){
+    navigate('/messages')
+}
     
     return(
         <main>
@@ -29,6 +30,7 @@ function handleHome(){
                 <img id="profilePicture" src = {currentUser.profile} onClick={() => handleProfile()} style={{width: 30 ,height: 30}}/>
                 <img id="createButton" src = {'https://thumbs.dreamstime.com/b/kyiv-ukraine-august-add-new-content-black-line-icon-popular-instagram-media-element-plus-follow-symbol-isolated-white-228162071.jpg'} onClick={() => handleCreate()} style={{width: 50 ,height: 50}}/>
                 <img id="homeButton" src = {'https://static.thenounproject.com/png/771236-200.png'} onClick={() => handleHome()} style={{width: 40 ,height: 40}}/>
+                <button onClick={handleChat}>Chat</button>
             </div>
         </main>
     )

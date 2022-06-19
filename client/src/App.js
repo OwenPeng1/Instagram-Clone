@@ -4,7 +4,6 @@ import PhotoContainer from './PhotoContainer';
 import Login from './Login';
 import CreateUser from './CreateUser';
 import Profile from './Profile';
-import FollowerTabs from './FollowerTabs';
 import CommentForm from './CommentForm';
 import Stories from './Stories';
 import { useState, useEffect } from 'react';
@@ -17,6 +16,7 @@ import CreatePost from './CreatePost';
 import CreateStory from './CreateStory';
 import HomeStories from './HomeStories';
 import HomeComment from './HomeComment';
+import Messages from './Messages';
 
 function App() {
 const [photos, setPhotos] = useState([])
@@ -24,11 +24,12 @@ const [comments, setComments] = useState([])
 const [user, setUser] = useState({username:"", password:""})
 const [currentUser, setCurrentUser] = useState(null)
 const [viewed, setViewed] = useState(null)
-const [activeTab, setActiveTab] = useState("")
+const [activeTab, setActiveTab] = useState("SCurry")
 const [users, setUsers] = useState([])
 const [commentedPhoto, setCommentedPhoto] = useState(null)
 const [viewedStory, setViewedStory] = useState(null)
 const [viewedPicture, setViewedPicture] = useState(null)
+const [messages, setMessages] = useState([])
   
   function fetchPhotos(){
     fetch("/photos")
@@ -55,12 +56,19 @@ const [viewedPicture, setViewedPicture] = useState(null)
       setCurrentUser(data)})
   }
 
+  function fetchMessages(){
+    fetch("/messages")
+    .then(r => r.json())
+    .then(setMessages)
+  }
+
   useEffect(
     () => {
       fetchPhotos()
       fetchComments()
       fetchCurrentUser()
       fetchUsers()
+      fetchMessages()
     }, []
   )
 
@@ -68,15 +76,13 @@ const [viewedPicture, setViewedPicture] = useState(null)
     <main>
       <Routes>
         <Route path="/home" 
-        element={<PhotoContainer photos={photos} comments={comments} currentUser={currentUser} setViewed={setViewed} fetchPhotos={fetchPhotos} setCommentedPhoto={setCommentedPhoto} users={users} setViewedStory={setViewedStory} fetchComments={fetchComments} setViewedPicture={setViewedPicture}/>}/>
+        element={<PhotoContainer photos={photos} comments={comments} currentUser={currentUser} setViewed={setViewed} fetchPhotos={fetchPhotos} setCommentedPhoto={setCommentedPhoto} users={users} setViewedStory={setViewedStory} fetchComments={fetchComments} setViewedPicture={setViewedPicture} setActiveTab={setActiveTab}/>}/>
         <Route path="/"
         element= {<Login setUser={setUser} setCurrentUser={setCurrentUser} user={user}/>}/>
         <Route path="/user"
         element = {<CreateUser/>}/>
         <Route path="/profile"
         element = {<Profile viewed={viewed} photos={photos} currentUser={currentUser} fetchPhotos={fetchPhotos} fetchCurrentUser={fetchCurrentUser} setActiveTab={setActiveTab} fetchUsers={fetchUsers} setViewedPicture={setViewedPicture} setViewed={setViewed} users={users}/>}/>
-        <Route path="/tabs"
-        element= {<FollowerTabs activeTab={activeTab} setActiveTab={setActiveTab} users={users} currentUser={currentUser} viewed={viewed} fetchUsers={fetchUsers} setViewed={setViewed}/>}/>
         <Route path="/comment"
         element = {<CommentForm commentedPhoto={commentedPhoto} comments={comments} setViewed={setViewed} fetchComments={fetchComments} currentUser={currentUser}/>} />
         <Route path="/stories"
@@ -97,6 +103,8 @@ const [viewedPicture, setViewedPicture] = useState(null)
         element ={<HomeStories viewed={viewed} currentUser={currentUser}/>} />
         <Route path ="/homeComment"
         element = {<HomeComment viewedPicture={viewedPicture} viewed={viewed} currentUser={currentUser} comments={comments} setViewed={setViewed} fetchPhotos={fetchPhotos} setCommentedPhoto={setCommentedPhoto} fetchComments={fetchComments}/>}/>
+        <Route path="/messages"
+        element = {<Messages messages={messages} currentUser={currentUser} fetchMessages={fetchMessages} activeTab={activeTab} setActiveTab={setActiveTab} users={users} setViewed={setViewed}/>} />
       </Routes>
     </main>
   ) 
