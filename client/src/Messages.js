@@ -81,8 +81,8 @@ let className= ""
                         <IndivudalMessages message={message} currentUser={currentUser}/>)) : <div></div>}
                 </ul>
                 <form onSubmit={handleSubmit}>
-                    <input placeholder="Type Message" onChange={(e) => setMessageWords(e.target.value)}/>
-                    <button type="submit">Submit</button>
+                    <input id="messageInput" placeholder="Type Message" onChange={(e) => setMessageWords(e.target.value)}/>
+                    <button id= "submitMessage" type="submit">Submit</button>
                 </form>
             </div>
         </main>

@@ -3,7 +3,7 @@ import {useNavigate} from 'react-router-dom';
 import ProfilePicture from "./ProfilePicture"
 import Header from "./Header";
 
-function Profile({viewed,photos, currentUser, fetchPhotos,fetchCurrentUser, setActiveTab, fetchUsers, setViewedPicture, setViewed, users}){
+function Profile({viewed,photos, currentUser,setActiveTab, fetchPhotos,fetchCurrentUser, setFollowerTab, fetchUsers, setViewedPicture, setViewed, users}){
 
 const userPhotos = []
 for (let i=0; i<photos.length; i++){
@@ -49,15 +49,15 @@ function handleFollow(){
     const navigate = useNavigate()
 
     function handleFollowers(){
-        setActiveTab("followers")
+        setFollowerTab("Followers")
         fetchUsers()
-        navigate("/tabs")
+        navigate("/followers")
     }
 
     function handleFollowing(){
         fetchUsers()
-        setActiveTab("following")
-        navigate("/tabs")
+        setFollowerTab("Following")
+        navigate("/followers")
     }
  
     function handleUnfollow(){
@@ -100,12 +100,18 @@ function handleStories(){
     }
 }
 
+function handleMessage(){
+    setActiveTab(viewed.username)
+    navigate("/messages")
+}
+
     return(
         <main>
             <div>
             <Header setViewed={setViewed} currentUser={currentUser} users={users}/>
                 <div id="profileInfo">
                     <h1 id="profileUsername">{viewed.username}</h1>
+                    <button id="messageProfile" onClick = {handleMessage}>Message</button>
                     {userPhotos[0].user.followers.includes(currentUser.username) ?
                     (<button className="followButton" onClick = {handleUnfollow}>Unfollow</button>) :
                     (<button id="followButton" className="followButton" onClick = {handleFollow}>Follow</button>)

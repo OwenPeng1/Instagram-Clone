@@ -26,13 +26,16 @@ function handleSubmit(e){
              })}
     return(
         <main>
-            {picture? 
-                (<img id="imagePreview" src = {picture}  style={{width: 300 ,height: 300}}/>) : (<div></div>)}
-            <button onClick = {handleBack}>Back</button>
-            <form onSubmit={handleSubmit}>
-            <input placeholder="Image URL" onChange={(e) => setPicture(e.target.value)}/>
-            <button type="submit">Add Story</button>
-            </form>
+            <div id="addStory">  
+                <h2 id="storyInstructions">Add Story</h2>
+                {picture? 
+                    (<img id="imagePreview" src = {picture}  style={{width: 300 ,height: 300}}/>) : (<div></div>)}
+                <button id="storyBackButton" onClick = {handleBack}>Cancel</button>
+                <form onSubmit={handleSubmit}>
+                <input id="storyInput"placeholder="Image URL" onChange={(e) => setPicture(e.target.value)}/>
+                <button  id="storySubmit" type="submit">Add Story</button>
+                </form>
+            </div>
         </main>
     )
 

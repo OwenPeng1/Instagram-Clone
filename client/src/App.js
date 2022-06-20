@@ -17,6 +17,7 @@ import CreateStory from './CreateStory';
 import HomeStories from './HomeStories';
 import HomeComment from './HomeComment';
 import Messages from './Messages';
+import FollowerTab from './FollowerTab';
 
 function App() {
 const [photos, setPhotos] = useState([])
@@ -30,6 +31,7 @@ const [commentedPhoto, setCommentedPhoto] = useState(null)
 const [viewedStory, setViewedStory] = useState(null)
 const [viewedPicture, setViewedPicture] = useState(null)
 const [messages, setMessages] = useState([])
+const [followerTab, setFollowerTab] = useState("")
   
   function fetchPhotos(){
     fetch("/photos")
@@ -82,7 +84,7 @@ const [messages, setMessages] = useState([])
         <Route path="/user"
         element = {<CreateUser/>}/>
         <Route path="/profile"
-        element = {<Profile viewed={viewed} photos={photos} currentUser={currentUser} fetchPhotos={fetchPhotos} fetchCurrentUser={fetchCurrentUser} setActiveTab={setActiveTab} fetchUsers={fetchUsers} setViewedPicture={setViewedPicture} setViewed={setViewed} users={users}/>}/>
+        element = {<Profile viewed={viewed} photos={photos} currentUser={currentUser} fetchPhotos={fetchPhotos} fetchCurrentUser={fetchCurrentUser} setActiveTab={setActiveTab} setFollowerTab={setFollowerTab} fetchUsers={fetchUsers} setViewedPicture={setViewedPicture} setViewed={setViewed} users={users}/>}/>
         <Route path="/comment"
         element = {<CommentForm commentedPhoto={commentedPhoto} comments={comments} setViewed={setViewed} fetchComments={fetchComments} currentUser={currentUser}/>} />
         <Route path="/stories"
@@ -105,6 +107,8 @@ const [messages, setMessages] = useState([])
         element = {<HomeComment viewedPicture={viewedPicture} viewed={viewed} currentUser={currentUser} comments={comments} setViewed={setViewed} fetchPhotos={fetchPhotos} setCommentedPhoto={setCommentedPhoto} fetchComments={fetchComments}/>}/>
         <Route path="/messages"
         element = {<Messages messages={messages} currentUser={currentUser} fetchMessages={fetchMessages} activeTab={activeTab} setActiveTab={setActiveTab} users={users} setViewed={setViewed}/>} />
+        <Route path= "/followers"
+        element = {<FollowerTab users ={users}photos = {photos} viewed = {viewed} fetchPhotos={fetchPhotos} fetchCurrentUser = {fetchCurrentUser}currentUser= {currentUser} followerTab={followerTab} setViewed={setViewed}/>} />
       </Routes>
     </main>
   ) 

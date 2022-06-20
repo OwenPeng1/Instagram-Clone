@@ -11,9 +11,10 @@ function handleClick(){
 }
 
     return(
-        <li onClick = {handleClick}>
-            <img src = {user.user.profile} style={{width: 50 ,height: 50}}/>
-            {user.user.username} {user.user.name}
+        <li id="searchItem" onClick = {handleClick}>
+            <img id="searchImage" src = {user.user.profile} style={{width: 50 ,height: 50}}/>
+            <span id="searchUsername"> {user.user.username} </span>
+            <span id="searchName">{user.user.name}</span>
         </li>
     )
 

@@ -101,7 +101,7 @@ function handleChat(){
                             (<button className="likeButton" onClick = {handleLike}>♡</button>)
                         }
                     <img id="commentButton" src = {'https://static.thenounproject.com/png/3460458-200.png'} onClick={() => handleComment()} style={{width: 30 ,height: 30}}/>
-                    <button onClick={handleChat}>Chat</button>
+                    <img id="chatHome" src = {'https://static.thenounproject.com/png/2796195-200.png'} onClick={() => handleChat()} style={{width: 30 ,height: 30}}/>
                 </div>
                 <div id="commentsLikes">
                     {picture.likedBy.length === 1 ?
