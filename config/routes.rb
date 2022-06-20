@@ -18,5 +18,5 @@ Rails.application.routes.draw do
   patch '/update_likes/:id', to: "users#update_likes"
   patch '/update_stories/:id', to: "users#update_stories"
 
-  root :to => 'main#index'
+
 end
