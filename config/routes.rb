@@ -8,8 +8,8 @@ Rails.application.routes.draw do
   # Leave this here to help deploy your app later!
   get "*path", to: "fallback#index", constraints: ->(req) { !req.xhr? && req.format.html? }
 
-  post '/login', to: "session#create"
-  get '/userInSession', to: "session#logged_user"
+  post "/login", to: "session#create"
+  get "/userInSession", to: "session#logged_user"
   delete "/logout", to: "session#destroy"
 
   patch '/update_likedBy/:id', to: "photos#update_likedBy"
@@ -18,5 +18,4 @@ Rails.application.routes.draw do
   patch '/update_likes/:id', to: "users#update_likes"
   patch '/update_stories/:id', to: "users#update_stories"
 
-  root :to => 'index#index'
 end
