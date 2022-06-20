@@ -9,7 +9,7 @@ if(followerTab === "Following"){usernameList = viewed.following}
 if(followerTab ==="Followers"){usernameList = viewed.followers}
 
 
-const usernameListWithoutCurrent = usernameList.filter(username => username != currentUser.username)
+const usernameListWithoutCurrent = usernameList.filter(username => username !== currentUser.username)
 function findUser(name){
     return users.filter(user => user.username=== name)[0]
 }

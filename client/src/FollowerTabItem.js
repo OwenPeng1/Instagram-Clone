@@ -61,7 +61,7 @@ function handleFollow(){
             method: 'PATCH',
             body: JSON.stringify({
                 following: 
-                currentUser.following.filter((item)=> item !=user.username),
+                currentUser.following.filter((item)=> item !==user.username),
                  }),
             headers: {
                 'Content-type': 'application/json; charset=UTF-8',
